@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:new_flutter_template/widgets/bottom_bar.dart';
+import 'package:new_flutter_template/src/pages/pages.dart';
+import 'package:new_flutter_template/widgets/widgets.dart';
 
-import 'sample_feature/sample_item_details_view.dart';
-import 'sample_feature/sample_item_list_view.dart';
-import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
+import '../widgets/sample_feature/sample_feature.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -27,6 +25,7 @@ class MyApp extends StatelessWidget {
       animation: settingsController,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           // Providing a restorationScopeId allows the Navigator built by the
           // MaterialApp to restore the navigation stack when a user leaves and
           // returns to the app after it has been killed while running in the
@@ -58,7 +57,11 @@ class MyApp extends StatelessWidget {
           // Define a light and dark color theme. Then, read the user's
           // preferred ThemeMode (light, dark, or system default) from the
           // SettingsController to display the correct theme.
-          theme: ThemeData(),
+          theme: ThemeData(
+            textTheme: Theme.of(context).textTheme.apply(
+                  bodyColor: const Color(0xff0B0E1A),
+                ),
+          ),
           darkTheme: ThemeData.dark(),
           themeMode: settingsController.themeMode,
 
@@ -81,6 +84,7 @@ class MyApp extends StatelessWidget {
             );
           },
           home: Scaffold(
+            body: const HomePage(),
             backgroundColor: Colors.white.withOpacity(0.9),
             bottomNavigationBar: BottomBar(
               // ignore: avoid_print

@@ -41,6 +41,14 @@ class HotreloadWidgetbook extends StatelessWidget {
                     builder: (context) => const BottomBarStory(),
                     name: 'Bottom Bar')
               ],
+            ),
+            WidgetbookComponent(
+              name: "Cards",
+              useCases: [
+                WidgetbookUseCase(
+                    builder: (context) => const CardItemStory(),
+                    name: 'Card Item')
+              ],
             )
           ],
         ),
