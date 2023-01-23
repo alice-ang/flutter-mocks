@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_flutter_template/widgets/widgets.dart';
+import 'package:new_flutter_template/src/utils/utils.dart';
+import 'package:new_flutter_template/src/widgets/widgets.dart';
 import 'package:swipeable_card_stack/swipeable_card_stack.dart';
 
 /// Displays a list of SampleItems.
@@ -30,12 +31,14 @@ class SampleItemListView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: CompanyCard(
               onTap: () {
-                Navigator.restorablePushNamed(
+                Navigator.pushNamed(
                   context,
                   SampleItemDetailsView.routeName,
+                  arguments: ScreenArguments(
+                      'Company $index', "subtitle", "description"),
                 );
               },
-              title: 'title',
+              title: 'Company $index',
               subtitle: 'subtitle'),
         ),
       ),

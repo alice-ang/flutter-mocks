@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:new_flutter_template/src/utils/utils.dart';
+import 'package:new_flutter_template/src/widgets/widgets.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class SampleItemDetailsView extends StatelessWidget {
   const SampleItemDetailsView({super.key});
@@ -8,6 +11,8 @@ class SampleItemDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -33,28 +38,40 @@ class SampleItemDetailsView extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding:
-            EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.05),
+        padding: EdgeInsets.only(
+            right: 32,
+            left: 32,
+            bottom: MediaQuery.of(context).size.height * 0.07),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
-              children: const [
-                Text(
-                  'Title',
-                ),
-                Text('subtitle'),
+              children: [
+                Text(args.title),
+                Text(args.subtitle ?? ''),
               ],
             ),
-            const Text(
-              'Qr code',
-              textAlign: TextAlign.center,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                QrImage(
+                  data: "https://studenthem-dev.vercel.app/",
+                  size: 260,
+                ),
+              ],
             ),
             Column(
-              children: const [
-                Text('Title'),
-                Text('subtitle'),
+              children: [
+                const Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Icon(
+                    Icons.announcement_outlined,
+                    color: Colors.deepPurpleAccent,
+                  ),
+                ),
+                Text(
+                    'This is a single use code for your use only. Get a new code each time you shop with ${args.title}'),
               ],
             ),
           ],

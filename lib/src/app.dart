@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:new_flutter_template/src/pages/pages.dart';
-import 'package:new_flutter_template/widgets/widgets.dart';
+import 'package:new_flutter_template/src/widgets/widgets.dart';
 
-import '../widgets/sample_feature/sample_feature.dart';
+import 'widgets/sample_feature/sample_feature.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
                   case SampleItemDetailsView.routeName:
-                    return const SampleItemDetailsView();
+                    return SampleItemDetailsView();
                   case SampleItemListView.routeName:
                   default:
                     return const SampleItemListView();
@@ -84,7 +84,7 @@ class MyApp extends StatelessWidget {
             );
           },
           home: Scaffold(
-            body: const HomePage(),
+            body: HomePage(),
             backgroundColor: Colors.white.withOpacity(0.9),
             bottomNavigationBar: BottomBar(
               // ignore: avoid_print

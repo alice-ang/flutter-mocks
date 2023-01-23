@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_flutter_template/widgets/card/card_item.dart';
+import 'package:new_flutter_template/src/widgets/widgets.dart';
 
 class CompanyCard extends StatelessWidget {
   const CompanyCard({
@@ -23,14 +23,33 @@ class CompanyCard extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 16),
           child: AspectRatio(
             aspectRatio: 1 / 1,
-            child: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                color: Colors.red,
-                image: DecorationImage(
-                  image: AssetImage('assets/images/flutter_logo.png'),
+            child: Stack(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    color: Colors.green,
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/flutter_logo.png'),
+                    ),
+                  ),
                 ),
-              ),
+                Container(
+                  margin: const EdgeInsets.all(16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: Colors.white,
+                  ),
+                  child: const Text(
+                    '70 %',
+                    style: TextStyle(
+                        color: Colors.deepPurpleAccent,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -70,7 +89,7 @@ class CompanyCard extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text('hej'), Text('hej')],
+              children: [const Text('hej'), const Text('hej')],
             ),
           ],
         )

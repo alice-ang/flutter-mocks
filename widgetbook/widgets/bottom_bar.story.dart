@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_flutter_template/widgets/widgets.dart';
+import 'package:new_flutter_template/src/widgets/widgets.dart';
 
 class BottomBarStory extends StatelessWidget {
   const BottomBarStory({super.key});

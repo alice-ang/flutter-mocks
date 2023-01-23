@@ -24,7 +24,7 @@ class BottomBar extends HookWidget {
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "Home"),
         BottomNavigationBarItem(
-            icon: Icon(Icons.question_mark_outlined), label: 'Discover'),
+            icon: Icon(Icons.location_on_outlined), label: 'Discover'),
         BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
         BottomNavigationBarItem(
             icon: Icon(Icons.notifications_outlined), label: 'Notifications'),
