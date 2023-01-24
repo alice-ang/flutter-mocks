@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_flutter_template/src/widgets/profile_header.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import 'widgets/widgets.dart';
@@ -34,6 +35,14 @@ class HotreloadWidgetbook extends StatelessWidget {
         WidgetbookCategory(
           name: "Widgets",
           widgets: [
+            WidgetbookComponent(
+              name: "Profile header",
+              useCases: [
+                WidgetbookUseCase(
+                    builder: (context) => const ProfileHeader(),
+                    name: 'Profile header')
+              ],
+            ),
             WidgetbookComponent(
               name: "Bottom Navigation",
               useCases: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:new_flutter_template/src/pages/pages.dart';
@@ -17,24 +18,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Glue the SettingsController to the MaterialApp.
-    //
-    // The AnimatedBuilder Widget listens to the SettingsController for changes.
-    // Whenever the user updates their settings, the MaterialApp is rebuilt.
     return AnimatedBuilder(
       animation: settingsController,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          // Providing a restorationScopeId allows the Navigator built by the
-          // MaterialApp to restore the navigation stack when a user leaves and
-          // returns to the app after it has been killed while running in the
-          // background.
           restorationScopeId: 'app',
 
-          // Provide the generated AppLocalizations to the MaterialApp. This
-          // allows descendant Widgets to display the correct translations
-          // depending on the user's locale.
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
@@ -45,19 +35,19 @@ class MyApp extends StatelessWidget {
             Locale('en'), // English
             Locale('sv'), // Swedish
           ],
-
-          // Use AppLocalizations to configure the correct application title
-          // depending on the user's locale.
-          //
-          // The appTitle is defined in .arb files found in the localization
-          // directory.
           onGenerateTitle: (BuildContext context) =>
               AppLocalizations.of(context)!.appTitle,
-
-          // Define a light and dark color theme. Then, read the user's
-          // preferred ThemeMode (light, dark, or system default) from the
-          // SettingsController to display the correct theme.
           theme: ThemeData(
+            appBarTheme: const AppBarTheme(
+              iconTheme: IconThemeData(color: Colors.black),
+              color: Colors.deepPurpleAccent,
+              foregroundColor: Colors.black,
+              systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarIconBrightness:
+                    Brightness.dark, // For Android (dark icons)
+                statusBarBrightness: Brightness.light, // For iOS (dark icons)
+              ),
+            ),
             textTheme: Theme.of(context).textTheme.apply(
                   bodyColor: const Color(0xff0B0E1A),
                 ),
@@ -75,7 +65,7 @@ class MyApp extends StatelessWidget {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
                   case SampleItemDetailsView.routeName:
-                    return SampleItemDetailsView();
+                    return const SampleItemDetailsView();
                   case SampleItemListView.routeName:
                   default:
                     return const SampleItemListView();
@@ -84,7 +74,7 @@ class MyApp extends StatelessWidget {
             );
           },
           home: Scaffold(
-            body: HomePage(),
+            body: const HomePage(),
             backgroundColor: Colors.white.withOpacity(0.9),
             bottomNavigationBar: BottomBar(
               // ignore: avoid_print

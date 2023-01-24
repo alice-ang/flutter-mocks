@@ -5,12 +5,16 @@ class CompanyCard extends StatelessWidget {
   const CompanyCard({
     required this.title,
     required this.subtitle,
+    required this.discount,
+    this.isFavorite = false,
     this.onTap,
     super.key,
   });
 
   final String title;
   final String subtitle;
+  final bool isFavorite;
+  final int discount;
   final VoidCallback? onTap;
 
   @override
@@ -18,6 +22,7 @@ class CompanyCard extends StatelessWidget {
     return CardItem(
       onTap: onTap,
       width: 250,
+      height: 350,
       items: [
         Padding(
           padding: const EdgeInsets.only(bottom: 16),
@@ -42,9 +47,9 @@ class CompanyCard extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     color: Colors.white,
                   ),
-                  child: const Text(
-                    '70 %',
-                    style: TextStyle(
+                  child: Text(
+                    '$discount %',
+                    style: const TextStyle(
                         color: Colors.deepPurpleAccent,
                         fontWeight: FontWeight.bold),
                   ),
@@ -75,8 +80,8 @@ class CompanyCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Icon(
-                  Icons.favorite_outline,
+                Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_outline,
                   color: Colors.redAccent,
                 )
               ],
@@ -89,7 +94,7 @@ class CompanyCard extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [const Text('hej'), const Text('hej')],
+              children: const [Text('hej'), Text('hej')],
             ),
           ],
         )

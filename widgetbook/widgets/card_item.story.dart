@@ -1,72 +1,29 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
+import 'package:widgetbook/widgetbook.dart';
 
 class CardItemStory extends StatelessWidget {
   const CardItemStory({super.key});
 
   @override
   Widget build(BuildContext context) {
+    String title = context.knobs.text(label: 'Title', initialValue: 'Title');
+    String subtitle =
+        context.knobs.text(label: 'Subtitle', initialValue: 'subtitle');
+    bool isFavorite =
+        context.knobs.boolean(label: 'Favorite', initialValue: true);
+    int discount =
+        context.knobs.number(label: 'discount', initialValue: 70).toInt();
+
     return Center(
       child: GestureDetector(
-        child: CardItem(
-          height: 340,
-          width: 250,
-          items: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 16),
-              child: AspectRatio(
-                aspectRatio: 1 / 1,
-                child: Container(
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                      color: Colors.red,
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/flutter_logo.png'),
-                      )),
-                ),
-              ),
-            ),
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'Title',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          'Subtitle',
-                          style: TextStyle(
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Icon(
-                      Icons.favorite_outline,
-                      color: Colors.redAccent,
-                    )
-                  ],
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 4, bottom: 4),
-                  child: Divider(
-                    thickness: 0.6,
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [Text('hej'), Text('hej')],
-                ),
-              ],
-            )
-          ],
+        child: CompanyCard(
+          title: title,
+          subtitle: subtitle,
+          isFavorite: isFavorite,
+          discount: discount,
         ),
       ),
     );

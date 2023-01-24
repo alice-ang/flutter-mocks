@@ -30,6 +30,7 @@ class SampleItemListView extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: CompanyCard(
+              discount: 40,
               onTap: () {
                 Navigator.pushNamed(
                   context,

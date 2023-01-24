@@ -9,11 +9,6 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      systemOverlayStyle: const SystemUiOverlayStyle(
-        // Status bar brightness (optional)
-        statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-        statusBarBrightness: Brightness.light, // For iOS (dark icons)
-      ),
       iconTheme: IconThemeData(
         color: Colors.grey.withOpacity(0.7),
       ),
