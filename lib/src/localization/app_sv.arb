@@ -1,0 +1,8 @@
+{
+  "sampleItemListViewTitle": "Företag",
+  "sampleItem": "Företagsnamn",
+  "appTitle": "new_flutter_template",
+  "@appTitle": {
+    "description": "Applikationens titel"
+  }
+}
