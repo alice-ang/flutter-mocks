@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
           },
           home: Scaffold(
             body: const HomePage(),
-            backgroundColor: Colors.white.withOpacity(0.9),
+            backgroundColor: const Color(0xfffbfdff),
             bottomNavigationBar: BottomBar(
               // ignore: avoid_print
               onTap: (index) => print(index),
