@@ -31,21 +31,22 @@ class StylizedCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // Container(
-                    //   margin: const EdgeInsets.all(16),
-                    //   padding: const EdgeInsets.symmetric(
-                    //       horizontal: 16, vertical: 8),
-                    //   decoration: const BoxDecoration(
-                    //     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    //     color: Colors.white,
-                    //   ),
-                    //   child: Text(
-                    //     ' %',
-                    //     style: const TextStyle(
-                    //         color: Colors.deepPurpleAccent,
-                    //         fontWeight: FontWeight.bold),
-                    //   ),
-                    // ),
+                    Container(
+                      margin: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                        color: const Color(0xff75b39d),
+                      ),
+                      child: const Text(
+                        '70 %',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ],
                 ),
               ),
