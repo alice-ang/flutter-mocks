@@ -10,6 +10,7 @@ environment:
   sdk: ">=2.18.4 <3.0.0"
 
 dependencies:
+  floating_bottom_navigation_bar: ^1.5.2
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.5+1

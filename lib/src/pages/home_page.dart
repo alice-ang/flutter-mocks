@@ -30,48 +30,7 @@ class HomePage extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 16),
               child: SampleItemListView(),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Demo Headline 2',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  Card(
-                    child: ListTile(
-                        title: Text('Motivation $int'),
-                        subtitle: const Text(
-                            'this is a description of the motivation')),
-                  ),
-                  Card(
-                    child: ListTile(
-                        title: Text('Motivation $int'),
-                        subtitle: const Text(
-                            'this is a description of the motivation')),
-                  ),
-                  Card(
-                    child: ListTile(
-                        title: Text('Motivation $int'),
-                        subtitle: const Text(
-                            'this is a description of the motivation')),
-                  ),
-                  Card(
-                    child: ListTile(
-                        title: Text('Motivation $int'),
-                        subtitle: const Text(
-                            'this is a description of the motivation')),
-                  ),
-                  Card(
-                    child: ListTile(
-                        title: Text('Motivation $int'),
-                        subtitle: const Text(
-                            'this is a description of the motivation')),
-                  ),
-                ],
-              ),
-            ),
+            Padding(padding: const EdgeInsets.all(16), child: StylizedCard()),
           ],
         ),
       ),

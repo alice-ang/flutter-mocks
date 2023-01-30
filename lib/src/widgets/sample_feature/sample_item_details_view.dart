@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:new_flutter_template/src/utils/utils.dart';
-import 'package:new_flutter_template/src/widgets/widgets.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class SampleItemDetailsView extends StatelessWidget {
