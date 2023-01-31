@@ -15,32 +15,28 @@ class SampleItemDetailsView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: TopBar(
-        leading: StylizedBackButton(),
+        leading: const StylizedBackButton(),
         title: "Test Company",
-        trailing: Icon(Icons.more_horiz),
+        trailing: IconButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (BuildContext bc) {
+                  return StylizedBottomSheet(
+                    content: [
+                      StylizedTextButton(
+                        text: 'Text button',
+                        onPressed: () {
+                          print('Textbutton pressed');
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            icon: const Icon(Icons.more_horiz)),
       ),
-      // AppBar(
-      //   systemOverlayStyle: const SystemUiOverlayStyle(
-      //     // Status bar brightness (optional)
-      //     statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-      //     statusBarBrightness: Brightness.light, // For iOS (dark icons)
-      //   ),
-      //   iconTheme: IconThemeData(
-      //     color: Colors.grey.withOpacity(0.7),
-      //   ),
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      //   actions: <Widget>[
-      //     IconButton(
-      //       icon: const Icon(
-      //         Icons.more_horiz,
-      //       ),
-      //       onPressed: () {
-      //         // do something
-      //       },
-      //     )
-      //   ],
-      // ),
       body: Padding(
         padding: EdgeInsets.only(
             right: 32,

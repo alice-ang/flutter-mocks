@@ -7,9 +7,10 @@ class StylizedBackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: const Color(0xff7a5e7e),
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(width: 2)),
+        color: const Color(0xff7a5e7e),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(width: 2),
+      ),
       child: IconButton(
         onPressed: () {
           Navigator.pop(context);

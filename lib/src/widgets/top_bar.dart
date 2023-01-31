@@ -20,18 +20,14 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 0,
-      color: Colors.white,
       child: Container(
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(
-          border: hasBorder
-              ? const Border(
-                  bottom: BorderSide(
-                    width: 2,
-                  ),
-                )
-              : null,
-        ),
+            border: Border(
+          bottom: BorderSide(
+              width: 2,
+              style: hasBorder ? BorderStyle.solid : BorderStyle.none),
+        )),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Row(
