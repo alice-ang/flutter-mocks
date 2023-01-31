@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:new_flutter_template/src/utils/utils.dart';
+import 'package:new_flutter_template/src/widgets/widgets.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class SampleItemDetailsView extends StatelessWidget {
@@ -14,28 +14,33 @@ class SampleItemDetailsView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          // Status bar brightness (optional)
-          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-          statusBarBrightness: Brightness.light, // For iOS (dark icons)
-        ),
-        iconTheme: IconThemeData(
-          color: Colors.grey.withOpacity(0.7),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(
-              Icons.more_horiz,
-            ),
-            onPressed: () {
-              // do something
-            },
-          )
-        ],
+      appBar: TopBar(
+        leading: StylizedBackButton(),
+        title: "Test Company",
+        trailing: Icon(Icons.more_horiz),
       ),
+      // AppBar(
+      //   systemOverlayStyle: const SystemUiOverlayStyle(
+      //     // Status bar brightness (optional)
+      //     statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+      //     statusBarBrightness: Brightness.light, // For iOS (dark icons)
+      //   ),
+      //   iconTheme: IconThemeData(
+      //     color: Colors.grey.withOpacity(0.7),
+      //   ),
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      //   actions: <Widget>[
+      //     IconButton(
+      //       icon: const Icon(
+      //         Icons.more_horiz,
+      //       ),
+      //       onPressed: () {
+      //         // do something
+      //       },
+      //     )
+      //   ],
+      // ),
       body: Padding(
         padding: EdgeInsets.only(
             right: 32,

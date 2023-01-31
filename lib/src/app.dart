@@ -69,7 +69,8 @@ class MyApp extends StatelessWidget {
           },
           home: Scaffold(
             body: const HomePage(),
-            backgroundColor: const Color(0xfffbfdff),
+            backgroundColor: const Color(0xfff7f7f7),
+            extendBody: true,
             bottomNavigationBar: BottomBar(
               // ignore: avoid_print
               onTap: (index) => print(index),

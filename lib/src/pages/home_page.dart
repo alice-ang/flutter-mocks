@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_flutter_template/src/utils/utils.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,30 +9,35 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+      appBar: const TopBar(
+        title: "Lokalkortet",
+        hasBorder: true,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const ProfileHeader(),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'Recommended stores',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 16),
-              child: SampleItemListView(),
-            ),
-            Padding(padding: const EdgeInsets.all(16), child: StylizedCard()),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (int i = 0; i < 3; i++) ...[
+                StylizedCard(
+                  title: 'title',
+                  subtitle: 'subtitle',
+                  discount: 45,
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      SampleItemDetailsView.routeName,
+                      arguments: ScreenArguments(
+                          'Company $i', "subtitle", "description"),
+                    );
+                  },
+                ),
+              ],
+              StylizedListTile(),
+            ],
+          ),
         ),
       ),
     );

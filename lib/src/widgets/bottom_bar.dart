@@ -29,6 +29,7 @@ class BottomBar extends HookWidget {
           ),
         ),
         FloatingNavbar(
+          borderRadius: 16,
           selectedBackgroundColor: const Color(0xff7a5e7e),
           backgroundColor: const Color(0xff7a5e7e),
           onTap: onTap,
