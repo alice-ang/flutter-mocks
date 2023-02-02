@@ -20,7 +20,7 @@ class StylizedTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      width: double.infinity,
+      width: width ?? double.infinity,
       decoration: BoxDecoration(
         color: backgroundColor ?? const Color(0xff77b39d),
         borderRadius: BorderRadius.circular(16),

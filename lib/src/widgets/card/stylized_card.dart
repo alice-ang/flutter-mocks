@@ -74,18 +74,16 @@ class StylizedCard extends StatelessWidget {
                           ),
                         ),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(
-                                  child: Text(
-                                    subtitle,
-                                    style: const TextStyle(),
-                                  ),
+                                Text(
+                                  subtitle,
+                                  style: const TextStyle(),
                                 ),
                                 const Icon(
                                   Icons.favorite,
@@ -93,14 +91,12 @@ class StylizedCard extends StatelessWidget {
                                 )
                               ],
                             ),
-                            Expanded(
-                              child: Text(
-                                title,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
-                              ),
+                            Text(
+                              title,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
                             ),
                           ],
                         ),
