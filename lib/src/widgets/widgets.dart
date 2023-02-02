@@ -6,3 +6,7 @@ export 'qr_image.dart';
 export 'profile_header.dart';
 export 'button/button.dart';
 export 'sheet/sheet.dart';
+export 'discount_badge.dart';
+export 'icon_badge.dart';
+export 'search_bar.dart';
+export 'user_top_bar.dart';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_flutter_template/src/utils/utils.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
+import 'package:new_flutter_template/styles/styles.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class SampleItemDetailsView extends StatelessWidget {
@@ -24,6 +25,12 @@ class SampleItemDetailsView extends StatelessWidget {
                 builder: (BuildContext bc) {
                   return StylizedBottomSheet(
                     content: [
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        child: Divider(
+                          thickness: 2,
+                        ),
+                      ),
                       StylizedTextButton(
                         text: 'Text button',
                         onPressed: () {
@@ -64,12 +71,8 @@ class SampleItemDetailsView extends StatelessWidget {
             Column(
               children: [
                 const Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Icon(
-                    Icons.announcement_outlined,
-                    color: Colors.deepPurpleAccent,
-                  ),
-                ),
+                    padding: EdgeInsets.all(16),
+                    child: IconBadge(icon: Icons.notifications)),
                 Text(
                     'This is a single use code for your use only. Get a new code each time you shop with ${args.title}'),
               ],

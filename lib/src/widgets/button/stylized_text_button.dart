@@ -30,7 +30,8 @@ class StylizedTextButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyle(color: textColor ?? Colors.white),
+          style: TextStyle(
+              color: textColor ?? Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );
