@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
           },
           home: Scaffold(
             body: const HomePage(),
-            backgroundColor: const Color(0xfff7f7f7),
+            backgroundColor: Color.fromARGB(248, 243, 241, 241),
             extendBody: true,
             bottomNavigationBar: BottomBar(
               // ignore: avoid_print

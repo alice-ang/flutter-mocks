@@ -27,7 +27,7 @@ class Styles {
 
   static BoxDecoration stylizedBox = BoxDecoration(
     borderRadius: const BorderRadius.all(Radius.circular(20)),
-    border: Border.all(width: 2),
+    border: Border.all(width: 1),
     color: Colors.white,
   );
 }

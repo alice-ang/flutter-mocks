@@ -22,7 +22,7 @@ class DiscountBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         border: Border.all(
-          width: 2,
+          width: 1,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         color: getBadgeColor(discount),

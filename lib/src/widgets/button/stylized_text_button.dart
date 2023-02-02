@@ -24,7 +24,7 @@ class StylizedTextButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor ?? const Color(0xff77b39d),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(width: 2),
+        border: Border.all(width: 1),
       ),
       child: TextButton(
         onPressed: onPressed,

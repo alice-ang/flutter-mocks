@@ -33,7 +33,7 @@ class StylizedCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(
-                    width: 2,
+                    width: 1,
                   ),
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),
@@ -69,7 +69,7 @@ class StylizedCard extends StatelessWidget {
                         decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(
-                              width: 2,
+                              width: 1,
                             ),
                           ),
                         ),
@@ -91,12 +91,17 @@ class StylizedCard extends StatelessWidget {
                                 )
                               ],
                             ),
-                            Text(
-                              title,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            Flexible(
+                              child: Text(
+                                title,
+                                maxLines: 1,
+                                softWrap: true,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
                             ),
                           ],
                         ),

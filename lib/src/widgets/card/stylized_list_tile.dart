@@ -19,7 +19,7 @@ class StylizedListTile extends StatelessWidget {
                 aspectRatio: 1 / 1,
                 child: Container(
                   decoration: BoxDecoration(
-                    border: Border.all(width: 2),
+                    border: Border.all(width: 1),
                     borderRadius: const BorderRadius.all(
                       Radius.circular(16),
                     ),

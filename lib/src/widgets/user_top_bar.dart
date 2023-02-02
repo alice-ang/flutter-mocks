@@ -16,19 +16,26 @@ class UserTopBar extends StatelessWidget implements PreferredSizeWidget {
             decoration: const BoxDecoration(
               color: Colors.white,
               border: Border(
-                bottom: BorderSide(width: 2, style: BorderStyle.solid),
+                bottom: BorderSide(
+                  width: 2,
+                  style: BorderStyle.solid,
+                ),
               ),
             ),
             child: Container(
               color: Colors.white,
               padding: const EdgeInsets.symmetric(
-                  horizontal: 16, vertical: kToolbarHeight),
+                horizontal: 16,
+                vertical: kToolbarHeight,
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
                   Padding(
                     padding: EdgeInsets.only(right: 8),
                     child: CircleAvatar(
+                      backgroundColor: Colors.amberAccent,
+                      foregroundColor: Colors.black,
                       child: Icon(Icons.face),
                     ),
                   ),

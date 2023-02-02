@@ -23,11 +23,13 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
       child: Container(
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(
+            color: Colors.white,
             border: Border(
-          bottom: BorderSide(
-              width: 2,
-              style: hasBorder ? BorderStyle.solid : BorderStyle.none),
-        )),
+              bottom: BorderSide(
+                width: 2,
+                style: hasBorder ? BorderStyle.solid : BorderStyle.none,
+              ),
+            )),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Row(

@@ -7,8 +7,12 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: Styles.stylizedBox,
-      padding: const EdgeInsets.all(2),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(width: 1),
+      ),
+      padding: const EdgeInsets.all(4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,19 +31,15 @@ class SearchBar extends StatelessWidget {
             ),
           ),
           Container(
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: const Color(0xff77b39d),
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(width: 2),
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(width: 1),
             ),
-            child: IconButton(
-              onPressed: () {
-                print('Search');
-              },
-              icon: const Icon(
-                Icons.tune,
-                color: Colors.white,
-              ),
+            child: const Icon(
+              Icons.tune,
+              color: Colors.white,
             ),
           ),
         ],

@@ -9,7 +9,7 @@ class StylizedBackButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xff7a5e7e),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(width: 2),
+        border: Border.all(width: 1),
       ),
       child: IconButton(
         onPressed: () {

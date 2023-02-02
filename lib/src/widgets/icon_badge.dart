@@ -17,7 +17,7 @@ class IconBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        border: Border.all(width: 2),
+        border: Border.all(width: 1),
         color: backgroundColor ?? const Color(0xff77b39d),
         borderRadius: BorderRadius.circular(50),
       ),

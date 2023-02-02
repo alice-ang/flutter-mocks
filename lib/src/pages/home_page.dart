@@ -27,7 +27,6 @@ class HomePage extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.only(right: 8),
                       child: Container(
-                        alignment: Alignment.center,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8,
                           vertical: 4,
@@ -36,15 +35,16 @@ class HomePage extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: index == 0
                               ? const Color(0xfffbd686)
-                              : const Color(0xff77b39d),
-                          borderRadius: BorderRadius.circular(16),
-                          border: Border.all(width: 2),
+                              : Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(width: 1),
                         ),
-                        child: Text(
+                        child: const Text(
                           '⭐️ Popular',
                           style: TextStyle(
-                              color: index == 0 ? Colors.black : Colors.white,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     );
@@ -56,17 +56,17 @@ class HomePage extends StatelessWidget {
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             sliver: SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 childAspectRatio: 1 / 2,
                 crossAxisCount: 2,
                 crossAxisSpacing: 16,
                 mainAxisSpacing: 16,
-                mainAxisExtent: MediaQuery.of(context).size.width / 1.4,
+                mainAxisExtent: 260,
               ),
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
                   return StylizedCard(
-                    title: "Alice pannkakor ",
+                    title: "Alice pannkakor",
                     subtitle: 'Subtitle',
                     discount: (Random().nextInt(10 - 1) * 10),
                     extent: (index % 5 + 1) * 100,
