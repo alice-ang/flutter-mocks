@@ -1,29 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-class TopBar extends StatelessWidget {
-  TopBar({this.actions, super.key});
+class TopBar extends StatelessWidget implements PreferredSizeWidget {
+  const TopBar({
+    this.actions,
+    this.leading,
+    this.title,
+    this.trailing,
+    this.hasBorder = false,
+    super.key,
+  });
 
-  List<Widget>? actions;
+  final List<Widget>? actions;
+  final Widget? leading;
+  final Widget? trailing;
+  final bool hasBorder;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      iconTheme: IconThemeData(
-        color: Colors.grey.withOpacity(0.7),
-      ),
-      backgroundColor: Colors.transparent,
+    return Material(
       elevation: 0,
-      actions: <Widget>[
-        IconButton(
-          icon: const Icon(
-            Icons.more_horiz,
+      child: Container(
+        alignment: Alignment.bottomCenter,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border(
+              bottom: BorderSide(
+                width: 2,
+                style: hasBorder ? BorderStyle.solid : BorderStyle.none,
+              ),
+            )),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: leading == null && trailing == null
+                ? MainAxisAlignment.center
+                : MainAxisAlignment.spaceBetween,
+            children: [
+              if (leading != null) ...[leading!],
+              if (title != null) ...[
+                Text(
+                  title!,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+              ...actions ?? [],
+              if (trailing != null) ...[trailing!],
+            ],
           ),
-          onPressed: () {
-            // do something
-          },
-        )
-      ],
+        ),
+      ),
     );
   }
+
+  @override
+  final Size preferredSize = const Size.fromHeight(kToolbarHeight + 32);
 }

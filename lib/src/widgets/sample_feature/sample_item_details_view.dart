@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:new_flutter_template/src/utils/utils.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
+import 'package:new_flutter_template/styles/styles.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class SampleItemDetailsView extends StatelessWidget {
@@ -15,27 +15,34 @@ class SampleItemDetailsView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          // Status bar brightness (optional)
-          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-          statusBarBrightness: Brightness.light, // For iOS (dark icons)
-        ),
-        iconTheme: IconThemeData(
-          color: Colors.grey.withOpacity(0.7),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(
-              Icons.more_horiz,
-            ),
+      appBar: TopBar(
+        leading: const StylizedBackButton(),
+        title: "Test Company",
+        trailing: IconButton(
             onPressed: () {
-              // do something
+              showModalBottomSheet(
+                context: context,
+                builder: (BuildContext bc) {
+                  return StylizedBottomSheet(
+                    content: [
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        child: Divider(
+                          thickness: 2,
+                        ),
+                      ),
+                      StylizedTextButton(
+                        text: 'Text button',
+                        onPressed: () {
+                          print('Textbutton pressed');
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
             },
-          )
-        ],
+            icon: const Icon(Icons.more_horiz)),
       ),
       body: Padding(
         padding: EdgeInsets.only(
@@ -64,12 +71,8 @@ class SampleItemDetailsView extends StatelessWidget {
             Column(
               children: [
                 const Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Icon(
-                    Icons.announcement_outlined,
-                    color: Colors.deepPurpleAccent,
-                  ),
-                ),
+                    padding: EdgeInsets.all(16),
+                    child: IconBadge(icon: Icons.notifications)),
                 Text(
                     'This is a single use code for your use only. Get a new code each time you shop with ${args.title}'),
               ],

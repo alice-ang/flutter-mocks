@@ -5,8 +5,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:new_flutter_template/src/pages/pages.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
 
-import 'widgets/sample_feature/sample_feature.dart';
-
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
   const MyApp({
@@ -24,7 +22,6 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           restorationScopeId: 'app',
-
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
@@ -54,9 +51,6 @@ class MyApp extends StatelessWidget {
           ),
           darkTheme: ThemeData.dark(),
           themeMode: settingsController.themeMode,
-
-          // Define a function to handle named routes in order to support
-          // Flutter web url navigation and deep linking.
           onGenerateRoute: (RouteSettings routeSettings) {
             return MaterialPageRoute<void>(
               settings: routeSettings,
@@ -75,7 +69,8 @@ class MyApp extends StatelessWidget {
           },
           home: Scaffold(
             body: const HomePage(),
-            backgroundColor: const Color(0xfffbfdff),
+            backgroundColor: Color.fromARGB(248, 243, 241, 241),
+            extendBody: true,
             bottomNavigationBar: BottomBar(
               // ignore: avoid_print
               onTap: (index) => print(index),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_flutter_template/src/utils/utils.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
-import 'package:swipeable_card_stack/swipeable_card_stack.dart';
 
 /// Displays a list of SampleItems.
 class SampleItemListView extends StatelessWidget {
@@ -16,9 +15,6 @@ class SampleItemListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SwipeableCardSectionController cardController =
-        SwipeableCardSectionController();
-
     return SizedBox(
       height: 350,
       child: ListView.builder(
