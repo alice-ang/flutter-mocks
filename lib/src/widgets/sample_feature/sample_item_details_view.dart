@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_flutter_template/src/utils/utils.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
-import 'package:new_flutter_template/styles/styles.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class SampleItemDetailsView extends StatelessWidget {
@@ -11,8 +9,6 @@ class SampleItemDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: TopBar(
@@ -25,11 +21,8 @@ class SampleItemDetailsView extends StatelessWidget {
                 builder: (BuildContext bc) {
                   return StylizedBottomSheet(
                     content: [
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 16),
-                        child: Divider(
-                          thickness: 2,
-                        ),
+                      const Divider(
+                        thickness: 2,
                       ),
                       StylizedTextButton(
                         text: 'Text button',
@@ -50,31 +43,26 @@ class SampleItemDetailsView extends StatelessWidget {
             left: 32,
             bottom: MediaQuery.of(context).size.height * 0.07),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
-              children: [
-                Text(args.title),
-                Text(args.subtitle ?? ''),
+              children: const [
+                Text('Title'),
+                Text('Subtitle'),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                QrImage(
-                  data: "https://studenthem-dev.vercel.app/",
-                  size: 260,
-                ),
-              ],
+            QrImage(
+              data: "https://studenthem-dev.vercel.app/",
+              size: 260,
             ),
             Column(
-              children: [
-                const Padding(
+              children: const [
+                Padding(
                     padding: EdgeInsets.all(16),
                     child: IconBadge(icon: Icons.notifications)),
                 Text(
-                    'This is a single use code for your use only. Get a new code each time you shop with ${args.title}'),
+                    'This is a single use code for your use only. Get a new code each time you shop with Company'),
               ],
             ),
           ],

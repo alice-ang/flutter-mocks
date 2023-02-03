@@ -8,13 +8,14 @@ class StylizedListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: Styles.stylizedBox,
+      constraints:
+          BoxConstraints(maxWidth: MediaQuery.of(context).size.width - 64),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(12),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 100,
               child: AspectRatio(
                 aspectRatio: 1 / 1,
                 child: Container(
@@ -32,26 +33,33 @@ class StylizedListTile extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    'Areca Palm',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
+            Flexible(
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Areca Palm',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Herb',
-                    style: TextStyle(
-                      fontSize: 16,
+                    Text(
+                      'Herb',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
                     ),
-                  ),
-                ],
+                    Text(
+                      'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

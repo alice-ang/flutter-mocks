@@ -1,7 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:new_flutter_template/src/utils/utils.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -31,7 +29,6 @@ class HomePage extends StatelessWidget {
                           horizontal: 8,
                           vertical: 4,
                         ),
-                        width: 100,
                         decoration: BoxDecoration(
                           color: index == 0
                               ? const Color(0xfffbd686)
@@ -39,9 +36,10 @@ class HomePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(width: 1),
                         ),
-                        child: const Text(
-                          '⭐️ Popular',
-                          style: TextStyle(
+                        child: Text(
+                          index == 0 ? '⭐️ Popular' : '🍴 Tag',
+                          style: const TextStyle(
+                            fontSize: 12,
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
@@ -61,21 +59,21 @@ class HomePage extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: 16,
                 mainAxisSpacing: 16,
-                mainAxisExtent: 260,
+                mainAxisExtent: 200,
               ),
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
                   return StylizedCard(
-                    title: "Alice pannkakor",
+                    title: "Company $index",
                     subtitle: 'Subtitle',
                     discount: (Random().nextInt(10 - 1) * 10),
                     extent: (index % 5 + 1) * 100,
                     onTap: () {
-                      Navigator.pushNamed(
+                      Navigator.push(
                         context,
-                        SampleItemDetailsView.routeName,
-                        arguments: ScreenArguments(
-                            'Company $index', "subtitle", "description"),
+                        MaterialPageRoute(
+                          builder: (context) => const SampleItemDetailsView(),
+                        ),
                       );
                     },
                   );

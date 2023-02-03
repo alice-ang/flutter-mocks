@@ -39,29 +39,27 @@ class StylizedCard extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    AspectRatio(
-                      aspectRatio: 1 / 1,
-                      child: Stack(
-                        children: [
-                          Container(
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                              ),
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: NetworkImage(
-                                    "https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&"),
-                              ),
+                    Stack(
+                      children: [
+                        Container(
+                          height: 100,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                  "https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&"),
                             ),
                           ),
+                        ),
 
-                          // Badge
-                          if (discount != null)
-                            DiscountBadge(discount: discount!),
-                        ],
-                      ),
+                        // Badge
+                        if (discount != null)
+                          DiscountBadge(discount: discount!),
+                      ],
                     ),
                     Expanded(
                       child: Container(

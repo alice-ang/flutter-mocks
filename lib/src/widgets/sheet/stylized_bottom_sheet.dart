@@ -18,14 +18,10 @@ class StylizedBottomSheet extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.only(
-          top: 16,
-          left: 16,
-          right: 16,
           bottom: const Size.fromHeight(kToolbarHeight).height,
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: content,
         ),
