@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:new_flutter_template/src/widgets/lists/lists.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
 import 'package:new_flutter_template/styles/styles.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 class UserTopBar extends StatelessWidget implements PreferredSizeWidget {
   const UserTopBar({super.key});
@@ -118,35 +118,12 @@ class UserTopBar extends StatelessWidget implements PreferredSizeWidget {
                                       ],
                                     ),
                                   ),
-                                  const Padding(
-                                    padding: EdgeInsets.all(16),
-                                    child: Text(
-                                      'Dagliga kupoger',
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    padding: const EdgeInsets.only(left: 16),
+                                  HorizontalList(
+                                    onSeeAll: () {},
+                                    listItem: const StylizedListTile(),
+                                    title: 'Dagliga kupoger',
+                                    restorationId: 'dailyOffers',
                                     height: 120,
-                                    child: ListView.builder(
-                                      restorationId: 'dailyOffers',
-                                      physics: const ClampingScrollPhysics(),
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: 5,
-                                      itemBuilder:
-                                          (BuildContext context, int index) =>
-                                              const Padding(
-                                        padding: EdgeInsets.only(
-                                          right: 16,
-                                        ),
-                                        child: StylizedListTile(),
-                                      ),
-                                    ),
                                   ),
                                 ],
                               );

@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
+import 'package:new_flutter_template/styles/styles.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -37,7 +38,7 @@ class HomePage extends StatelessWidget {
                           border: Border.all(width: 1),
                         ),
                         child: Text(
-                          index == 0 ? '⭐️ Popular' : '🍴 Tag',
+                          index == 0 ? '⭐️ Popular' : '🍴 Tag $index',
                           style: const TextStyle(
                             fontSize: 12,
                             color: Colors.black,
@@ -52,13 +53,55 @@ class HomePage extends StatelessWidget {
             ),
           ),
           SliverPadding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            sliver: SliverToBoxAdapter(
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                ),
+                child: HeroImage(
+                  content: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        'Masora pancake festival',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'Masora pancake festival',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        '16 Nov 2023',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             sliver: SliverGrid(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 childAspectRatio: 1 / 2,
                 crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
                 mainAxisExtent: 200,
               ),
               delegate: SliverChildBuilderDelegate(
@@ -66,6 +109,7 @@ class HomePage extends StatelessWidget {
                   return StylizedCard(
                     title: "Company $index",
                     subtitle: 'Subtitle',
+                    index: index,
                     discount: (Random().nextInt(10 - 1) * 10),
                     extent: (index % 5 + 1) * 100,
                     onTap: () {

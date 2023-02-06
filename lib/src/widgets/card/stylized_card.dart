@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_flutter_template/src/widgets/widgets.dart';
-import 'package:new_flutter_template/styles/styles.dart';
 
 class StylizedCard extends StatelessWidget {
   const StylizedCard({
@@ -10,6 +9,7 @@ class StylizedCard extends StatelessWidget {
     this.isFavorite = false,
     this.extent,
     this.onTap,
+    this.index = 1,
     super.key,
   });
 
@@ -19,6 +19,7 @@ class StylizedCard extends StatelessWidget {
   final bool isFavorite;
   final int? discount;
   final double? extent;
+  final int? index;
 
   @override
   Widget build(BuildContext context) {
@@ -43,15 +44,15 @@ class StylizedCard extends StatelessWidget {
                       children: [
                         Container(
                           height: 100,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20),
                             ),
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: NetworkImage(
-                                  "https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&"),
+                                  "https://picsum.photos/1920/1080?random=$index"),
                             ),
                           ),
                         ),

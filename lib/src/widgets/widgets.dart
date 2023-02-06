@@ -10,3 +10,4 @@ export 'discount_badge.dart';
 export 'icon_badge.dart';
 export 'search_bar.dart';
 export 'user_top_bar.dart';
+export 'hero_image.dart';
